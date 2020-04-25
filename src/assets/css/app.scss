@@ -1,0 +1,22 @@
+/* 竖屏 */
+@media screen and (orientation:portrait) {
+  //  以vw为单位
+  
+} 
+
+/* 横屏 */
+@media screen and (orientation:landscape) {
+// 　　 以vh为单位
+}
+*{
+  padding: 0;margin: 0;
+  list-style: none;
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  overflow: hidden;
+}

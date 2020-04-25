@@ -1,0 +1,27 @@
+@keyframes fadeIn{	//0%可以换成from，100%可以换成to
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+#game{
+  width: 100%;
+  height: 100%;
+}
+#startGame{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  #startVideo{
+    height: 100%;width: 100%;
+    position: absolute;
+    background-color: black;
+    video{
+      height: 100%;width: 100%;
+    }
+  }
+  .toGameOne{
+    display: none;
+  }
+}
+.fade{
+  animation: fadeIn 2s ;
+}

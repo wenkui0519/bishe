@@ -1,32 +1,48 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  data () {
+    return {
+    }
+  },
+  mounted () {
+    // 监听resize方法
+    this.resize()
+    window.addEventListener('resize', this.resize, false)
+  },
+  methods: {
+    resize () {
+      var width = window.innerWidth
+      var height = window.innerHeight
+      var app = document.getElementById('app')
+      var style = ''
+      if (width >= height) { // 横屏
+        style += 'width:' + width + 'px;' // 注意旋转后的宽高切换
+        style += 'height:' + height + 'px;'
+        style += '-webkit-transform: rotate(0); transform: rotate(0);'
+        style += '-webkit-transform-origin: ' + width / 2 + 'px ' + width / 2 + 'px;'
+        style += 'transform-origin: ' + width / 2 + 'px ' + width / 2 + 'px;'
+      } else { // 竖屏
+        style += 'width:' + height + 'px;'
+        style += 'height:' + width + 'px;'
+        style += '-webkit-transform: rotate(90deg); transform: rotate(90deg);'
+        // 注意旋转中点的处理
+        style += '-webkit-transform-origin: ' + width / 2 + 'px ' + width / 2 + 'px;'
+        style += 'transform-origin: ' + width / 2 + 'px ' + width / 2 + 'px;'
+      }
+      app.style.cssText = style
+      // width = null
+      // height = null
+    }
+  }
 }
+</script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style lang="sass">
+@import '@/assets/css/app.scss'
 </style>

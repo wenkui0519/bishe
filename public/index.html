@@ -3,15 +3,39 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
+    <!-- <link rel="icon" href="<%= BASE_URL %>favicon.ico"> -->
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name="full-screen" content="yes" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+    <meta name="apple-mobile-web-app-title" content="yeziyuan" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="x5-fullscreen" content="true" />
+
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+  <body @touchmove.prevent>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <script>
+      window.onload = function(){
+        //强制让内容超过
+        var app = document.getElementById('app');
+        app.style.width = window.innerwidth + 100;
+        console.log(app.style.width)
+        // $('#app').css("width", window.innerwidth + 100);
+        window.scrollTo(0, 1);
+        //重置成新高度
+        app.style.width = window.innerwidth;
+        console.log(app.style.width)
+        // $("#app").css("height", window.innerHeight);
+        //非常重要，用于兼容不同机型，防止浏览器窗口移动
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        console.log('over')
+      }
+
+    </script>
   </body>
 </html>

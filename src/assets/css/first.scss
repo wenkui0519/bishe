@@ -1,0 +1,404 @@
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes fadeIn2{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes fadeOut{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes down{
+  0%{
+    top: -1335px;
+  }
+  100%{
+    top: 0vw;
+  }
+}
+@keyframes up{
+  0%{
+    top: 0vw;
+  }
+  100%{
+    top: -1335px;
+  }
+}
+@keyframes tankuang{
+  0%{
+    top: -70vw;
+  }
+  100%{
+    top: 35vw;
+  }
+}
+@keyframes shake{
+25% {
+    transform:  translate(-3px, 0) rotate(-.5deg);
+}
+50%{
+  transform: translate(0, 0) rotate(0);
+}
+75%{
+  transform: translate(3px, 0) rotate(.5deg);
+}
+0%, 100% {
+    transform:translate(0, 0) rotate(0);
+}
+}
+@keyframes eggshake{
+  25% {
+      transform:  translate(-3px, 0) rotate(-.5deg) scale(1.5);
+  }
+  50%{
+    transform: translate(0, 0) rotate(0) scale(1.5);
+  }
+  75%{
+    transform: translate(3px, 0) rotate(.5deg) scale(1.5);
+  }
+  0%, 100% {
+      transform:translate(0, 0) rotate(0) scale(1.5);
+  }
+  }
+@keyframes shakefutou{
+  0%{
+    transform: rotate(0deg);
+  }
+  5%{
+    transform: rotate(5deg);
+  }
+  10%{
+    transform: rotate(0deg);
+  }
+  15%{
+    transform: rotate(-5deg);
+  }
+  20%{
+    transform: translatey(0vw) rotate(0deg);opacity: 1;
+  }
+  60%{
+    transform: translatey(-5vw) rotate(0deg);
+  }
+  100%{
+    transform:translatey(-5vw) rotate(0deg);opacity: 0;
+  }
+}
+@keyframes zshake{
+  0% {
+    transform:translate(0, 0) rotate(0);
+  }
+  8% {
+    transform:  translate(-3px, 0) rotate(-.5deg);
+  }
+  15% {
+    transform: translate(0, 0) rotate(0);
+  }
+  23% {
+    transform: translate(3px, 0) rotate(.5deg);
+  }
+  30% {
+    transform:translate(0, 0) rotate(0); opacity: 1;
+  }
+  100% {
+    transform:translate(0, 10vw);opacity: 0;
+  }
+}
+@keyframes fudon{
+  0%{
+    transform: translatex(0) translateY(0) rotate(0);
+  }
+  100%{
+    transform: translatex(0) translateY(-5vw) rotate(15deg);
+  }
+}
+#game{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  // animation: fadeIn 4s;
+}
+#firstStep{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  img.bg3{
+    width: 100%;
+    height: 100%;
+  }
+  div.fits{
+    position: absolute;
+    img{
+      width: 180%;height: 180%;
+    }
+  }
+  #littlestone{
+    left: 1.5vw; top:59vw;
+    width:34px;height: 26px;
+  }
+  
+  #water{
+    left: 7vw;
+    top: 63vw;
+    width:263px;height: 297px;
+    transform: scale(1.5,1.3);
+  }
+  #bg2{
+    left: 4vw;top:76vw;
+    width:2430px;height: 273px;
+    transform: scale(1.1,1.3);
+    z-index: 1;
+  }
+  #birds{
+    left: 32vw; top: 15vw;
+    width:415px;height: 219px;
+  }
+  #zhong{
+    left: 74vw; top: 53.5vw;
+    width:169px;height: 154px;
+    transform-origin: 50% 50%;
+    z-index: 1;
+  }
+  .zhonshake{
+    animation: shake .3s ease-in-out ;
+  }
+  #zhen{
+    left: 79.6vw; top: 62vw;
+    width:17px;height: 63px;
+  }
+  .zhenshake{
+    animation: zshake 1s forwards;
+  }
+  #topfire{
+    right: 45vw; top: 57vw;
+    width:86px;height: 101px;
+  }
+  .topfirehide{
+    animation: fadeOut .5s forwards;
+  }
+  #tophuoba{
+    right: 45vw; top: 63vw;
+    width:74px;height: 53px;
+    transform: scale(1.12);
+  }
+  #bishou{
+    right: 10vw; top: 47vw;
+    width:46px;height: 40px;   
+    z-index: 1; 
+  }
+  #futou{
+    right: 59.5vw; top: 52vw;
+    width:109px;height: 115px;
+    transform-origin:50% 100%;
+  }
+  .shakefutou{
+    animation: shakefutou 1s forwards;
+  }
+  #gaizi{
+    right: 53vw; top: 76vw;
+    z-index: 3;    
+    width:219px;height: 36px;    
+  }
+  #niaocao{
+    right: 35vw; top: 26vw;
+    width:111px;height: 36px; 
+    z-index: 1;   
+  }
+  #egg{
+    right: 35.5vw; top: 24vw;
+    width:34px;height: 50px;  
+    transform: scale(1.5);  
+  }
+  .eggshake{
+    animation: eggshake .3s ease-in-out ;
+  }
+  #box{
+    right: 46vw; top: 90vw;
+    width:170px;height: 125px; 
+    z-index: 3;   
+  }
+  #background1{
+    right:46vw; top: 80vw;
+    width:450px;height: 227px;
+    transform: scale(1,1.18);
+    z-index: 3;
+  }
+  #opendoor{
+    right: 1.4vw; top: 50vw;
+    width:54px;height: 162px; 
+    transform: scale(1.2);
+  }
+  #closedoor{
+    right: 1.4vw; top: 50vw;
+    width:54px;height: 162px; 
+    transform: scale(1.2);
+  }
+  #windowlight{
+    right: 8vw; top: 44.2vw;
+    width:85px;height: 86px; 
+    transform: scale(1,1.12);
+  }
+  #windowoff{
+    right: 8vw; top: 44.2vw;
+    width:85px;height: 86px; 
+    transform: scale(1,1.12);
+  }
+  #background2{
+    right: 55vw; top: 80vw;
+    width:216px;height: 227px; 
+    z-index: 3;
+  }
+  #huoba{
+    right: 60vw; top: 89vw;
+    width:11px;height: 140px; 
+    z-index: 3;
+  }
+  #fire{
+    right: 59.8vw; top: 86vw;
+    width:45px;height: 64px; 
+    transform: scale(1.1);
+    z-index: 3;
+  }
+  #yumao{
+    left: 20vw; top: 84vw;
+    width:60px;height: 48px;
+    z-index: 4;
+  }
+  #bu{
+    left: 14vw; top: 84vw;
+    width:76px;height: 27px; 
+    z-index: 4;
+  }
+  .fudon{
+    animation: fudon 2s forwards; 
+  }
+  #tankuang{
+    left: 80vw; top: 35vw;
+    width:324px;height: 402px; 
+    animation: tankuang .6s ease-out forwards;
+    z-index: 1000;
+    div{
+      position: relative;
+      width:100%;height: 100%;
+      #float{
+        position: absolute;
+        top:0;left: 0;
+        transform: scale(0.6);
+      }
+    }
+  }
+  #taishou{
+    left: 100vw; top: 52vw;
+    width:148px;height: 311px; 
+    z-index: 4;
+  }
+  #shugui{
+    // right: 10vw; top: 0vw;
+    right: 10vw; top: -80vw;
+    width:211px;height: 991px; 
+    z-index: 1000;
+    transform: translate(1.8);
+    .dad{
+      position: relative;
+      width:100%;
+      .float{
+        position: absolute;
+        top:0;left: 0;
+        // img{
+        //   width: 100px;height: 100px;
+        // }
+        // transform: scale(0.3);
+      }
+    }
+  }
+  #shugui2{
+    // right: 10vw; top: 0vw;
+    right: 8vw; top: -15vw;
+    width:211px;height: 991px; 
+    transform: scale(.3);
+    z-index: 1;
+    animation: fadeIn2 .6s forwards;
+  }
+  #chi{
+    // right: 10vw; top: 0vw;
+    left: 0vw; top: -100vw;
+    width:130px;height: 1335px; 
+    z-index: 1000;
+  }
+  #chi2{
+    // left: 10vw; top: 0vw;
+    left: 0vw; top: -15vw;
+    width:211px;height: 991px; 
+    transform: scale(.3);
+    z-index: 1;
+    animation: fadeIn2 .6s forwards;
+  }
+  #youbiao{
+    // right: 10vw; top: 0vw;
+    left: 0vw;
+    width:103px;height: 35px; 
+    z-index: 1000;
+    animation: fadeIn .3s cubic-bezier(1.000, -0.600, 0.930, 0.165) forwards;
+  }
+}
+#shugui.down,#chi.down{
+  animation: down .2s ease-in forwards;
+}
+#shugui.up,#chi.up{
+  animation: up .2s ease-in forwards;
+}
+/* 竖屏 */
+@media screen and (orientation:portrait) {
+  //  以vw为单位
+  #littlestone{
+    left: 5vw; top:244vw;
+    width:38px;height: 26px;
+  }
+  #water{
+    left: 17vw;
+    top: 246vw;
+    width:263px;height: 297px;
+    transform: scale(1.5,1.3);
+  }
+  #birds{
+    left: 127vw; top: 61vw;
+    width:415px;height: 219px;
+    transform: scale(1.12);
+  }
+} 
+
+/* 横屏 */
+@media screen and (orientation:landscape) {
+// 　　 以vh为单位
+#littlestone{
+  left: 5vh; top:244vh;
+  width:38px;height: 26px;
+}
+#water{
+  left: 17vh;
+  top: 246vh;
+  width:263px;height: 297px;
+  transform: scale(1.5,1.3);
+}
+#birds{
+  left: 127vh; top: 61vh;
+  width:415px;height: 219px;
+  transform: scale(1.12);
+}
+}

@@ -1,0 +1,103 @@
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+#game{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  // animation: fadeIn 4s;
+}
+#firstStep{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  img.bg3{
+    width: 100%;
+    height: 100%;
+  }
+  div.fits{
+    position: absolute;
+    img{
+      width: 150%;height: 150%;
+    }
+  }
+  #tenmang{
+    left: 9vw; top:27vw;
+    width:1329px;height: 599px;
+    transform:scale(1.35,1.5);
+  }
+  #chaihuo{
+    left: 85vw; top:80vw;
+    width:470px;height: 283px;
+    transform:scale(1.2);
+  }
+  #ding{
+    left: 9vw; top:21vw;
+    width:245px;height: 100px;
+    transform:scale(1.3);
+  }
+  #light{
+    left: 5vw; top:44vw;
+    width:695px;height: 650px;
+    transform:scale(1.4,1.6);
+    opacity: 0;
+    img{
+      position: relative;
+    }
+    .inner{
+      position: relative;
+      top: -42vw;
+      width: 150%;height: 150%;
+      img{
+        position: absolute;
+        width: 150%;height: 150%;
+      }
+      #pin{
+        left: 7vw; top:20.5vw;
+        width:31px;height: 62px;transform: scale(1.5);
+      }
+      #bed{
+        left: 24.5vw; top:27vw;
+        width:260px;height: 127px;transform: scale(1.4,1.5);
+      }
+      #box{
+        left: 27vw; top:30.5vw;
+        width:130px;height: 63px;transform: scale(1.4,1.5);
+      }
+      #ring{
+        left: 32vw; top:28.3vw;
+        width:42px;height: 27px;transform: scale(1.4,1.5);
+      }
+      #zentou{
+        left: 29vw; top:29vw;
+        width:142px;height: 59px;transform: scale(1.4,1.5);
+      }
+      #key{
+        left: 2vw; top:17vw;
+        width:40px;height: 71px;transform: scale(1.2);
+        animation: fadeIn 2s forwards;
+      }
+      #canjuan{
+        left: 5vw; top:37.5vw;
+        width:247px;height: 64px;transform: scale(1.2);
+      }
+      #fire{
+        left: 16.5vw; top:31.2vw;
+        width:191px;height: 189px;transform: scale(1.2);
+      }
+      #zhutai{
+        left: 20vw; top:36vw;
+        width:71px;height: 97px;transform: scale(1.2);
+      }
+    }
+  }
+  .showdong{
+    animation: fadeIn 4s forwards;
+  }
+}
