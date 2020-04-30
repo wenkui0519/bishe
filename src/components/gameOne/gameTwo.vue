@@ -85,14 +85,15 @@
         <img src="@/assets/img/one/shugui.png"
              alt="">
         <!-- <div v-for=""></div> -->
-        <div class="float">
-          <div v-for="(item) in getList"
-               :key="item[0]">
+        <ul class="float">
+          <li v-for="(item) in getList"
+              :key="item[0]">
             <img v-bind:src="item[1]"
+                 class="img1"
                  alt=""
                  style="width:300px;height:300px">
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div id='shugui2'

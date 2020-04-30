@@ -308,22 +308,42 @@
     width:148px;height: 311px; 
     z-index: 4;
   }
-  #shugui{
+  #shugui {
     // right: 10vw; top: 0vw;
-    right: 10vw; top: -80vw;
-    width:211px;height: 991px; 
+    right: 10vw;
+    top: -80vw;
+    width: 211px;
+    height: 991px;
     z-index: 1000;
     transform: translate(1.8);
-    .dad{
+    img {
+      width: 180%;
+      height: 180%;
+    }
+    .dad {
       position: relative;
-      width:100%;
-      .float{
+      width: 100%;
+      .float {
         position: absolute;
-        top:0;left: 0;
-        // img{
-        //   width: 100px;height: 100px;
-        // }
+        width: 211px;
+        height: 991px;
+        top: 5vw;
+        left: -14vw;
+        // display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
         // transform: scale(0.3);
+        li {
+          // flex: 0 0 auto;
+          width: 715px;
+          height: 270px;
+          transform: scale(0.3);
+          .img1 {
+            width: 100%;
+            height: 100%;
+            transform: scale(0.2);
+          }
+        }
       }
     }
   }
