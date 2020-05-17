@@ -1,5 +1,6 @@
 <template>
   <div id="firstStep">
+    <audio-play />
     <img class='bg3'
          src="@/assets/img/thr/bg3.png"
          alt="">
@@ -31,6 +32,7 @@
            alt="">
     </div>
     <div id='ling'
+         v-show="ling"
          @click="moveling"
          class="fits">
       <img src="@/assets/img/thr/ling.png"
@@ -92,13 +94,13 @@
            alt="">
     </div>
     <div id='tao'
-         v-if="zaoxshow"
+         v-show="zaoxshow"
          class="fits">
       <img src="@/assets/img/thr/tao.png"
            alt="">
     </div>
     <div id='dan'
-         v-if="zaoxshow"
+         v-show="zaoxshow"
          @click="getdan"
          class="fits">
       <img src="@/assets/img/thr/dan.png"
@@ -117,6 +119,10 @@
          class="fits">
       <div class="dad">
         <img src="@/assets/img/one/shugui.png"
+             alt="">
+        <img id="next"
+             @click="next"
+             src="@/assets/img/one/next.png"
              alt="">
         <!-- <div v-for=""></div> -->
         <ul class="float">
@@ -175,6 +181,7 @@
   </div>
 </template>
 <script>
+import AudioPlay from '@/components/video/audio.vue'
 export default {
   data () {
     return {
@@ -194,7 +201,7 @@ export default {
       zaoxshow: false,
       fu: false,
       fushow: true,
-      top: 376,
+      top: 168,
       daoju: '',
       daojuList: {
         book: {
@@ -251,6 +258,10 @@ export default {
         this.chiup = true
       }
     },
+    changeTop (num) {
+      this.top = 168 - num * 20.83
+      this.$store.commit('changeTop', this.top)
+    },
     close () {
       this.show = false
     },
@@ -268,6 +279,8 @@ export default {
       this.cao = false
       this.daoju = this.daojuList.xiancao.img
       this.getdaoju(this.daojuList.xiancao.name, this.daojuList.xiancao.tool)
+      var num = this.getList.length
+      this.changeTop(num)
     },
     showdong () {
       this.shakeye = true
@@ -283,18 +296,24 @@ export default {
       this.book = false
       this.daoju = this.daojuList.book.img
       this.getdaoju(this.daojuList.book.name, this.daojuList.book.tool)
+      var num = this.getList.length
+      this.changeTop(num)
     },
     moveling () {
       this.show = true
       this.ling = false
       this.daoju = this.daojuList.ling.img
       this.getdaoju(this.daojuList.ling.name, this.daojuList.ling.tool)
+      var num = this.getList.length
+      this.changeTop(num)
     },
     getying () {
       this.show = true
       this.ying = false
       this.daoju = this.daojuList.ying.img
       this.getdaoju(this.daojuList.ying.name, this.daojuList.ying.tool)
+      var num = this.getList.length
+      this.changeTop(num)
     },
     m1 () {
       if (!this.ling) {
@@ -311,6 +330,8 @@ export default {
       this.fu = true
       this.daoju = this.daojuList.fu.img
       this.getdaoju(this.daojuList.fu.name, this.daojuList.fu.tool)
+      var num = this.getList.length
+      this.changeTop(num)
     },
     getdan () {
       if (this.fu) {
@@ -318,8 +339,19 @@ export default {
         this.dan = false
         this.daoju = this.daojuList.dan.img
         this.getdaoju(this.daojuList.dan.name, this.daojuList.dan.tool)
+        var num = this.getList.length
+        this.changeTop(num)
+      }
+    },
+    next () {
+      event.preventDefault()
+      if (this.getList.length >= 4) {
+        this.$router.replace('/done')
       }
     }
+  },
+  components: {
+    AudioPlay
   }
 }
 </script>

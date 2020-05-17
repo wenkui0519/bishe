@@ -1,6 +1,6 @@
 @keyframes down {
   0% {
-    top: -1335px;
+    top: -1500px;
   }
   100% {
     top: 0vw;
@@ -11,7 +11,7 @@
     top: 0vw;
   }
   100% {
-    top: -1335px;
+    top: -1500px;
   }
 }
 @keyframes tankuang {
@@ -55,7 +55,7 @@
   #shugui {
     // right: 10vw; top: 0vw;
     right: 10vw;
-    top: -80vw;
+    top: -90vw;
     width: 211px;
     height: 991px;
     z-index: 1000;
@@ -67,6 +67,14 @@
     .dad {
       position: relative;
       width: 100%;
+      #next {
+        position: absolute;
+        width: 53px;
+        height: 394px;
+        left: 0vw;
+        bottom: -5vw;
+        transform: scale(1.5);
+      }
       .float {
         position: absolute;
         width: 211px;

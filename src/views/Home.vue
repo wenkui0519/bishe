@@ -31,12 +31,22 @@
          @click="changeSounds"
          v-if="sounds"
          id="soundon"><img src="@/assets/img/start/soundon.png"
-           alt=""></div>
+           alt="">
+      <div id="audioplay">
+        <audio id="aud"
+               controls
+               autoplay
+               loop
+               src="@/assets/img/one/music1.mp3"></audio>
+      </div>
+    </div>
     <div class="sound"
          @click="changeSounds"
          v-else
-         id="soundoff"><img src="@/assets/img/start/soundoff.png"
-           alt=""></div>
+         id="soundoff">
+      <img src="@/assets/img/start/soundoff.png"
+           alt="">
+    </div>
     <div id="shujuan"
          v-show="shujuan"><img src="@/assets/img/start/shujuan.png"
            alt="">
@@ -73,14 +83,19 @@ export default {
       close: false
     }
   },
+  mounted () {
+  },
   components: {
   },
   methods: {
     changeSounds () {
+      var aud = document.getElementById('aud')
       if (this.sounds) {
         this.sounds = false
+        aud.play()
       } else {
         this.sounds = true
+        aud.pause()
       }
     },
     closeWin () {

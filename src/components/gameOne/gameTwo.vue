@@ -1,5 +1,6 @@
 <template>
   <div id="firstStep">
+    <audio-play />
     <img class='bg3'
          src="@/assets/img/two/bg1.png"
          alt="">
@@ -10,12 +11,14 @@
            alt="">
     </div>
     <div id='chaihuo'
+         v-show="chai"
          @click="getchai"
          class="fits">
       <img src="@/assets/img/two/chaihuo.png"
            alt="">
     </div>
     <div id='ding'
+         v-show="ding"
          @click="getding"
          class="fits">
       <img src="@/assets/img/two/ding.png"
@@ -41,6 +44,7 @@
            alt="">
       <div class="inner">
         <img id="pin"
+             v-show="pin"
              @click="showkey"
              src="@/assets/img/two/pin.png"
              alt="">
@@ -53,6 +57,8 @@
              src="@/assets/img/two/bed.png"
              alt="">
         <img id="ring"
+             v-show="ring"
+             @click="getring"
              src="@/assets/img/two/ring.png"
              alt="">
         <img id="zentou"
@@ -64,6 +70,7 @@
              src="@/assets/img/two/key.png"
              alt="">
         <img id="canjuan"
+             v-show="canjuan"
              @click="getcanjuan"
              src="@/assets/img/two/canjuan.png"
              alt="">
@@ -72,6 +79,7 @@
              src="@/assets/img/two/fire.png"
              alt="">
         <img id="zhutai"
+             v-show="zhutai"
              @click="getzhutai"
              src="@/assets/img/two/zhutai.png"
              alt="">
@@ -83,6 +91,10 @@
          class="fits">
       <div class="dad">
         <img src="@/assets/img/one/shugui.png"
+             alt="">
+        <img id="next"
+             @click="next"
+             src="@/assets/img/one/next.png"
              alt="">
         <!-- <div v-for=""></div> -->
         <ul class="float">
@@ -125,9 +137,14 @@
       <img src="@/assets/img/one/youbiao.png"
            alt="">
     </div>
+    <div id='die'
+         @click="die"
+         class="fits">
+    </div>
   </div>
 </template>
 <script>
+import AudioPlay from '@/components/video/audio.vue'
 export default {
   data () {
     return {
@@ -136,13 +153,19 @@ export default {
       guiziup: false,
       chi: false,
       chiup: false,
-      top: 376,
+      top: 272,
       getman: 1,
       dongshow: false,
       key: false,
       box: true,
       rsxiandan: false,
       fire: true,
+      chai: true,
+      ding: true,
+      pin: true,
+      ring: true,
+      canjuan: true,
+      zhutai: true,
       daoju: '',
       daojuList: {
         tenmang: {
@@ -211,6 +234,10 @@ export default {
         this.guiziup = true
       }
     },
+    changeTop (num) {
+      this.top = 272 - num * 20.83
+      this.$store.commit('changeTop', this.top)
+    },
     changechi () {
       if (!this.chi) {
         this.chi = true
@@ -233,13 +260,16 @@ export default {
       console.log(this.getList)
     },
     getten () {
+      var num = this.getList.length
       if (this.getman > 3) {
-        console.log('死亡')
+        this.$router.replace('/fail')
       } else if (this.getman > 1) {
         this.getman++; this.show = true
+        this.changeTop(num)
       } else {
         this.getman++; this.show = true
         this.daoju = this.daojuList.tenmang.img
+        this.changeTop(num)
         this.getdaoju(this.daojuList.tenmang.name, this.daojuList.tenmang.tool)
       }
     },
@@ -247,11 +277,25 @@ export default {
       this.show = true
       this.daoju = this.daojuList.chai.img
       this.getdaoju(this.daojuList.chai.name, this.daojuList.chai.tool)
+      var num = this.getList.length
+      this.changeTop(num)
+      this.chai = false
+    },
+    getring () {
+      this.show = true
+      this.daoju = this.daojuList.ring.img
+      this.getdaoju(this.daojuList.ring.name, this.daojuList.ring.tool)
+      var num = this.getList.length
+      this.changeTop(num)
+      this.chai = false
     },
     getding () {
       this.show = true
       this.daoju = this.daojuList.ding.img
       this.getdaoju(this.daojuList.ding.name, this.daojuList.ding.tool)
+      var num = this.getList.length
+      this.changeTop(num)
+      this.ding = false
     },
     getdong () {
       this.dongshow = true
@@ -261,13 +305,16 @@ export default {
     },
     getkey () {
       this.show = true
+      var num = this.getList.length
       if (this.rsxiandan) {
         this.daoju = this.daojuList.xiandan.img
         this.getdaoju(this.daojuList.xiandan.name, this.daojuList.xiandan.tool)
+        this.changeTop(num)
       } else {
         this.rsxiandan = true
         this.daoju = this.daojuList.key.img
         this.getdaoju(this.daojuList.key.name, this.daojuList.key.tool)
+        this.changeTop(num)
       }
       setTimeout(() => {
         this.key = false
@@ -275,13 +322,16 @@ export default {
     },
     getbox () {
       this.show = true
+      var num = this.getList.length
       if (this.rsxiandan) {
         this.daoju = this.daojuList.xiandan.img
         this.getdaoju(this.daojuList.xiandan.name, this.daojuList.xiandan.tool)
+        this.changeTop(num)
       } else {
         this.rsxiandan = true
         this.daoju = this.daojuList.box.img
         this.getdaoju(this.daojuList.box.name, this.daojuList.box.tool)
+        this.changeTop(num)
       }
       setTimeout(() => {
         this.box = false
@@ -294,13 +344,31 @@ export default {
         this.show = true
         this.daoju = this.daojuList.zhutai.img
         this.getdaoju(this.daojuList.zhutai.name, this.daojuList.zhutai.tool)
+        var num = this.getList.length
+        this.changeTop(num)
+        this.zhutai = false
       }
     },
     getcanjuan () {
       this.show = true
       this.daoju = this.daojuList.canjuan.img
       this.getdaoju(this.daojuList.canjuan.name, this.daojuList.canjuan.tool)
+      var num = this.getList.length
+      this.changeTop(num)
+      this.canjuan = false
+    },
+    die () {
+      this.$router.replace('/fail')
+    },
+    next () {
+      event.preventDefault()
+      if (this.getList.length >= 4) {
+        this.$router.replace('/gameThr')
+      }
     }
+  },
+  components: {
+    AudioPlay
   }
 }
 </script>
